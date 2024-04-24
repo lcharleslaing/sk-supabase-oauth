@@ -7,7 +7,6 @@
 	import { selectedTheme } from '$lib/theme';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import BottomNavbar from '$lib/components/BottomNavbar.svelte';
-	import Auth from '$lib/components/Auth.svelte';
 
 	async function detectSWUpdate() {
 		const registration = await navigator.serviceWorker.ready;
@@ -48,6 +47,7 @@
 	<div id="" class="" data-theme={$selectedTheme}>
 		<!-- <Navbar /> -->
 		<slot />
+
 		<BottomNavbar />
 	</div>
 </html>

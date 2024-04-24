@@ -27,18 +27,31 @@
 	};
 </script>
 
-<main>
-	<h1>Login</h1>
-	<form action="?/login" method="POST" class="auth-form">
-		<label for=""> Email </label>
-		<input type="text" name="email" />
-		<label for=""> Password </label>
-		<input type="password" name="password" />
+<main class="flex flex-col justify-center items-center mx-auto gap-2 h-screen">
+	<h1 class="m-6 text-4xl font-extrabold">Login</h1>
+	<form
+		class="auth-form flex flex-col justify-center items-center mx-auto gap-2"
+		action="?/login"
+		method="POST"
+	>
+		<input
+			type="text"
+			name="email"
+			placeholder="Email..."
+			class="input input-bordered w-full max-w-xs"
+		/>
+		<input
+			type="password"
+			name="password"
+			placeholder="Password..."
+			class="input input-bordered w-full max-w-xs"
+		/>
 		<button type="submit" class="btn btn-primary">Login</button>
 	</form>
+	<h1 class="m-6 text-xl font-thin">Or Login with...</h1>
 	<form class="socials" method="POST" use:enhance={submitSocialLogin}>
-		<button formaction="?/login&provider=github" class="btn btn-ghost">Github</button>
-		<button formaction="?/login&provider=discord" class="btn btn-ghost">Discord</button>
-		<button formaction="?/login&provider=google" class="btn btn-ghost">Google</button>
+		<button formaction="?/login&provider=github" class="btn btn-primary">Github</button>
+		<button formaction="?/login&provider=discord" class="btn btn-primary">Discord</button>
+		<button formaction="?/login&provider=google" class="btn btn-primary">Google</button>
 	</form>
 </main>
