@@ -43,10 +43,11 @@
 	<title>Time Tracker App</title>
 </svelte:head>
 
+<!-- <html lang="en" data-theme="lofi"> -->
 <html lang="en" data-theme={$selectedTheme}>
-	<div id="" class="" data-theme={$selectedTheme}>
+	<div id="" class="">
 		<!-- <Navbar /> -->
-		<slot />
+		<slot data-theme={$selectedTheme} />
 
 		<BottomNavbar />
 	</div>

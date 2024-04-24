@@ -7,12 +7,17 @@
 		{ label: 'Project List', route: '/projects' },
 		{ label: 'New', route: '/newtask' },
 		{ label: 'Reports', route: '/reports' },
-		{ label: 'Categories', route: '/categories' }
+		{ label: 'Categories', route: '/categories' },
+		{ label: 'Theme', route: '/theme' }
 	];
 
 	let activeRoute = $page.url.pathname; // This will hold the current active route
 
+	/**
+	 * @param {string | URL} route
+	 */
 	function setActive(route) {
+		// @ts-ignore
 		activeRoute = route; // Update the active route
 		goto(route); // Navigate to the route
 	}
