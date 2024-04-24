@@ -4,6 +4,7 @@
 	import { supabaseClient } from '$lib/supabase';
 	import type { PageData } from './$types';
 	import { writable } from 'svelte/store';
+	import { selectedTheme } from '$lib/theme';
 
 	export let data: PageData;
 
@@ -25,40 +26,44 @@
 	};
 </script>
 
-<PageTitle customTitle="Time Tracker App" />
+<!-- <PageTitle customTitle="Time Tracker App" /> -->
 
-{#if data.session}
-	<p class="text-center">Welcome, <strong>{data.session.user.email || 'Not Logged in'}</strong></p>
-	<button class="flex btn btn-xs btn-default btn-outline mx-auto my-2" on:click={toggleHidden}>
-		{#if $isVisible}
-			Close
-		{:else}
-			Auth
-		{/if}
-	</button>
+<div class="my-4" data-theme={selectedTheme}>
+	{#if data.session}
+		<p class="text-center">
+			Welcome, <strong>{data.session.user.email || 'Not Logged in'}</strong>
+		</p>
+		<button class="flex btn btn-xs btn-default btn-outline mx-auto my-2" on:click={toggleHidden}>
+			{#if $isVisible}
+				Close
+			{:else}
+				Auth
+			{/if}
+		</button>
 
-	<main
-		class="auth-form auth-buttons {$isVisible
-			? ''
-			: 'hidden'} flex-col justify-center items-center mx-auto gap-2"
-	>
-		<form
-			class="auth-form flex flex-col justify-center items-center mx-auto gap-2"
-			action="/logout"
-			method="POST"
-			use:enhance={submitLogout}
+		<main
+			class="auth-form auth-buttons {$isVisible
+				? ''
+				: 'hidden'} flex-col justify-center items-center mx-auto gap-2"
 		>
-			<button type="submit" class="btn btn-error">Confirm Logout</button>
-		</form>
-	</main>
-{:else}
-	<main class="auth-form auth-buttons flex-col justify-center items-center mx-auto gap-2">
-		<div class="auth-form flex flex-col justify-center items-center mx-auto gap-2">
-			<p>Let's learn how to register and login users!</p>
-			<div class="">
-				<a href="/login" class="btn btn-primary">Login</a>
-				<a href="/register" class="btn btn-secondary">Register</a>
+			<form
+				class="auth-form flex flex-col justify-center items-center mx-auto gap-2"
+				action="/logout"
+				method="POST"
+				use:enhance={submitLogout}
+			>
+				<button type="submit" class="btn btn-error">Confirm Logout</button>
+			</form>
+		</main>
+	{:else}
+		<main class="auth-form auth-buttons flex-col justify-center items-center mx-auto gap-2">
+			<div class="auth-form flex flex-col justify-center items-center mx-auto gap-2">
+				<p>Let's learn how to register and login users!</p>
+				<div class="">
+					<a href="/login" class="btn btn-primary">Login</a>
+					<a href="/register" class="btn btn-secondary">Register</a>
+				</div>
 			</div>
-		</div>
-	</main>
-{/if}
+		</main>
+	{/if}
+</div>
