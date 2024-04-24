@@ -4,11 +4,10 @@
 
 	const navLinks = [
 		{ label: 'Home', route: '/' },
-		{ label: 'Project List', route: '/projects' },
+		{ label: 'Project List', route: '/projectlist' },
 		{ label: 'New', route: '/newtask' },
 		{ label: 'Reports', route: '/reports' },
-		{ label: 'Categories', route: '/categories' },
-		{ label: 'Theme', route: '/theme' }
+		{ label: 'Categories', route: '/categories' }
 	];
 
 	let activeRoute = $page.url.pathname; // This will hold the current active route

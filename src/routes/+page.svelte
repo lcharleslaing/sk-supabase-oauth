@@ -26,13 +26,12 @@
 	};
 </script>
 
-<!-- <PageTitle customTitle="Time Tracker App" /> -->
+<PageTitle customTitle="Time Tracker App" />
 
-<div class="my-4" data-theme={selectedTheme}>
+<div class="" data-theme={selectedTheme}>
 	{#if data.session}
-		<p class="text-center">
-			Welcome, <strong>{data.session.user.email || 'Not Logged in'}</strong>
-		</p>
+		<p class="text-center">{data.session?.user.email}</p>
+
 		<button class="flex btn btn-xs btn-default btn-outline mx-auto my-2" on:click={toggleHidden}>
 			{#if $isVisible}
 				Close

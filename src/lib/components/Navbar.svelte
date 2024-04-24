@@ -10,7 +10,14 @@
 			{import.meta.env.VITE_APPNAME + ' v1.0' || 'Your Company'}
 		</a>
 	</div>
-	<!-- <div class="flex items-center">
+	<div class="flex">
+		<a href="/theme" class="btn btn-sm btn-ghost">
+			<img src="theme-svgrepo-com.svg" alt="Theme" class="w-6" />
+		</a>
+	</div>
+</nav>
+
+<!-- <div class="flex items-center">
 		<a href="/theme" class=" btn btn-sm btn-ghost">
 			<img src="theme-svgrepo-com.svg" alt="" class="w-6" />
 		</a>
@@ -34,4 +41,4 @@
 			<img src="" alt="User Avatar" class="w-12 h-12 rounded mr-2" />
 		</div>
 	</div> -->
-</nav>
+<!-- </nav> -->
