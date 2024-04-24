@@ -1,12 +1,15 @@
-<script lang="ts">
-	import PageTitle from '$lib/components/PageTitle.svelte';
-	import { enhance, type SubmitFunction } from '$app/forms';
+<script>
+	import PageTitle from '../../lib/components/PageTitle.svelte';
+	import { enhance } from '$app/forms';
 	import { supabaseClient } from '$lib/supabase';
-	import type { PageData } from './$types';
 
-	export let data: PageData;
+	/**
+	 * @type {{ session: { user: { email: any; }; }; }}
+	 */
+	export let data;
 
-	const submitLogout: SubmitFunction = async ({ cancel }) => {
+	// @ts-ignore
+	const submitLogout = async ({ cancel }) => {
 		const { error } = await supabaseClient.auth.signOut();
 		if (error) {
 			console.log(error);
@@ -18,7 +21,7 @@
 <main>
 	<PageTitle customTitle="Time Tracker App" />
 
-	{#if data.session}
+	{#if data && data.session}
 		<p>Welcome, {data.session.user.email}</p>
 		<form action="/logout" method="POST" use:enhance={submitLogout}>
 			<button type="submit" class="btn btn-primary">Logout</button>
